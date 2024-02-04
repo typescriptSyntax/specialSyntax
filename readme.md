@@ -27,6 +27,7 @@ type Point = {
 ```
 
 3. infer的用法(提取陣列、遞迴)
+### 提取元素
 ```
 type Arr=['a','b','c'] 
 或者 type Arr=Array<string>
@@ -42,6 +43,9 @@ type shift<T extends any[]> = T extends [unknown,...infer Rest]?Rest:[]
 得取剩餘陣列值
 type a=Last<Arr>
 
+```
+### 遞迴
+```
 type Arr=[1,2,3,4] or type Arr=Array<number>
 type ReverArr<T extends any[]> = T extends [infer First,...infer rest]? [...ReverArr<rest>,First]:T
 
