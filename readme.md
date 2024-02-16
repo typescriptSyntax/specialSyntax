@@ -1,6 +1,38 @@
 ### typescript的特殊性:
 1. 裝飾器
-2. type 與interface 
+```
+function enumerable(value: boolean) {
+  return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+    descriptor.enumerable = value;
+    console.log(target);
+  };
+}
+```
+```
+class Greeter {
+  greeting: string;
+  constructor(message: string) {
+    this.greeting = message;
+  }
+ 
+  @enumerable(false)
+  greet() {
+    return "Hello, " + this.greeting;
+  }
+}
+class NounGreeter {
+  greeting: int;
+  constructor(message: int) {
+    this.greeting = int;
+  }
+ 
+  @enumerable(false)
+  greet() {
+    return this.greeting;
+  }
+}
+``` 
+3. type 與interface 
 #### type 不支持聯合聲明
 ```
 interface Point {
